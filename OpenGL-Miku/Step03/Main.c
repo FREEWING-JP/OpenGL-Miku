@@ -81,14 +81,13 @@ int main(void)
 
     glClearColor(0.6, 0.8, 0.8, 1.0);
     glEnable(GL_DEPTH_TEST);
+    glEnable(GL_CULL_FACE);
 
     while (!glfwWindowShouldClose(window)) {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        glPointSize(8.0);
-
         glBindVertexArray(vertex_array);
-        glDrawArrays(GL_TRIANGLES, 0, model.num_vertices);
+        glDrawArrays(GL_TRIANGLES, 0, model.num_vertices / 3);
 
         glfwSwapBuffers(window);
         glfwPollEvents();
